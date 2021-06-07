@@ -2,6 +2,7 @@
 
 maochan is simple url shortner
 ![](https://i.imgur.com/3WNq28S.gif)
-# requirments
+## requirments
 
-flask and flask-SQLAlchemy
+* flask 
+* flask-SQLAlchemy
