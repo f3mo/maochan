@@ -1,6 +1,6 @@
 # maochan
 
-maochan is simple url shortner
+maochan is a simple url shortner
 
 
 
