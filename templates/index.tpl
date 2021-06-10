@@ -27,9 +27,13 @@ body,html{
           </div>
     </div>
 {% if short_url %}
-<div class="alert alert-success" role="alert">
- <a href="/{{ short_url }}">{{request.url +  short_url }}</a> 
-</div>
+    <div class="alert alert-success" role="alert">
+     <a href="/{{ short_url }}">{{request.url +  short_url }}</a> 
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+            {{ error }}
+    </div>
 {% endif  %}
     </form>   
 

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for , redirect
 from flask_sqlalchemy import SQLAlchemy
 from uuid import uuid4
+from urllib.parse import urlparse as up
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/url.db'
 db = SQLAlchemy(app)
@@ -23,6 +24,10 @@ except:
 def home():
     if request.method == 'POST':
         url = request.form['url']
+        if ' ' in url:
+            return render_template('index.tpl', error= 'INVALID URL')
+        elif up(url).scheme == '':
+            url = f'http://{url}'
         short = uuid4().hex[:7]
         post = Url(url=url,short_url=short)
         db.session.add(post)
